@@ -20,7 +20,6 @@ if ( !defined('EQDKP_INC') ){
 	header('HTTP/1.0 404 Not Found');exit;
 }
 $english_array = array(
-
 	'classes' => array(
 		0 => 'Unknown',
 		1 => 'Guardian',
@@ -28,17 +27,16 @@ $english_array = array(
 		3 => 'Ranger',
 		4 => 'Sorcerer',
 	),
-	
 	'races' => array(
-		'Unknown',
-		'Osira',
+		0	=> 'Unknown',
+		1	=> 'Osira',
 	),
 
 	'lang' => array(
-		'dp' => 'Dragon\'s Prophet',
-		'heavy' => 'Heavy',
-		'light' => 'Light',
-		'cloth' => 'Cloth',	
+		'dp'							=> 'Dragon\'s Prophet',
+		'heavy'							=> 'Heavy',
+		'light'							=> 'Light',
+		'cloth'							=> 'Cloth',	
 		
 		// profile additions
 		'uc_gender'						=> 'Gender',

@@ -20,25 +20,23 @@ if ( !defined('EQDKP_INC') ){
 	header('HTTP/1.0 404 Not Found');exit;
 }
 $german_array = array(
-
 	'classes' => array(
-		0 => 'Unbekannt',
-		1 => 'Waffenmeister',
-		2 => 'Orakel',
-		3 => 'Windläufer',
-		4 => 'Zauberer',
+		0	=> 'Unbekannt',
+		1	=> 'Waffenmeister',
+		2	=> 'Orakel',
+		3	=> 'Windläufer',
+		4	=> 'Zauberer',
 	),
-	
 	'races' => array(
-		'Unknown',
-		'Osira',
+		0	=> 'Unknown',
+		1	=> 'Osira',
 	),
 
 	'lang' => array(
-		'dp' => 'Dragon\'s Prophet',
-		'heavy' => 'Schwere Rüstung',
-		'light' => 'Leichte Rüstung',
-		'cloth' => 'Stoffrüstung',	
+		'dp'							=> 'Dragon\'s Prophet',
+		'heavy'							=> 'Schwere Rüstung',
+		'light'							=> 'Leichte Rüstung',
+		'cloth'							=> 'Stoffrüstung',	
 		
 		// profile additions
 		'uc_gender'						=> 'Geschlecht',
@@ -49,13 +47,13 @@ $german_array = array(
 		'profession1'					=> 'Beruf',
 		'profession1_mastery'			=> 'Meister-Stufe des Berufs',
 	
-		'none' => '------', 
-		'Alchemist' => 'Alchemist', 
-		'Armorsmith' => 'Rüstungsschmied', 
-		'Carpenter' => 'Schreiner', 
-		'Cook' => 'Koch', 
-		'Tinkerer' => 'Bastler', 
-		'Weaponsmith' => 'Waffenschmied', 	
+		'none'							=> '------', 
+		'Alchemist'						=> 'Alchemist', 
+		'Armorsmith'					=> 'Rüstungsschmied', 
+		'Carpenter'						=> 'Schreiner', 
+		'Cook'							=> 'Koch', 
+		'Tinkerer'						=> 'Bastler', 
+		'Weaponsmith'					=> 'Waffenschmied', 	
 	
 	),
 	

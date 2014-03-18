@@ -22,20 +22,89 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('dp')) {
 	class dp extends game_generic {
+		public $version			= '0.1';
 		protected $this_game	= 'dp';
 		protected $types		= array('classes', 'races', 'filters');
-		public $icons			= array('classes', 'classes_big', 'events', 'races');
 		protected $classes		= array();
 		protected $races		= array();
-		protected $factions		= array();
 		protected $filters		= array();
 		public $langs			= array('english', 'german');
+
+		protected $class_dependencies = array(
+			array(
+				'name'		=> 'race',
+				'type'		=> 'races',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'parent'	=> false
+			),
+			array(
+				'name'		=> 'class',
+				'type'		=> 'classes',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'primary'	=> true,
+				'colorize'	=> true,
+				'roster'	=> true,
+				'recruitment' => true,
+				'parent'	=> array(
+					'race' => array(
+						0 	=> 'all',			// Unknown
+						1 	=> 'all',			// Osira
+					),
+				),
+			),
+		);
+		
+		protected $class_colors = array(
+			1	=> '#FDCB00',
+			2	=> '#474AF8',
+			3	=> '#5D9900',
+			4	=> '#EB0900',
+		);
 
 		protected $glang		= array();
 		protected $lang_file	= array();
 		protected $path			= '';
 		public $lang			= false;
-		public $version			= '0.1';		
+
+		public function profilefields(){
+			// Category 'character' is a fixed one! All others are created dynamically!
+			$this->load_type('professions', array($this->lang));
+			$this->load_type('realmlist', array($this->lang));
+			$xml_fields = array(
+				'gender'	=> array(
+					'type'			=> 'dropdown',
+					'category'		=> 'character',
+					'name'			=> 'uc_gender',
+					'options'		=> array('Male' => 'uc_male', 'Female' => 'uc_female'),
+					'undeletable'	=> true,
+					'tolang'		=> true
+				),
+				'guild'	=> array(
+					'type'			=> 'text',
+					'category'		=> 'character',
+					'name'			=> 'uc_guild',
+					'size'			=> 40,
+					'undeletable'	=> true,
+				),
+					'profession1'	=> array(
+					'type'			=> 'dropdown',
+					'category'		=> 'profession',
+					'name'			=> 'profession1',
+					'options'		=> array('none' => '------', 'alchemist' => 'Alchemist', 'armorsmith' => 'Armorsmith', 'carpenter' => 'Carpenter', 'cook' => 'Cook', 'tinkerer' => 'Tinkerer', 'weaponsmith' => 'Weaponsmith'),
+					'undeletable'	=> true,
+				),
+					'profession1_mastery'	=> array(
+					'type'			=> 'int',
+					'category'		=> 'profession',
+					'name'			=> 'profession1_mastery',
+					'size'			=> 3,
+					'undeletable'	=> true,
+				),
+			);
+			return $xml_fields;
+		}
 
 		/**
 		* Initialises filters
@@ -55,9 +124,9 @@ if(!class_exists('dp')) {
 				
 				$this->filters[$lang] = array_merge($this->filters[$lang], array(
 					array('name' => '-----------', 'value' => false),
-                    array('name' => $this->glang('heavy', true, $lang), 'value' => array(1 => 'class')),
-                    array('name' => $this->glang('light', true, $lang), 'value' => array(1 => 'class', 3 => 'class')),
-                    array('name' => $this->glang('cloth', true, $lang), 'value' => array(1 => 'class', 2 => 'class', 3 => 'class', 4 => 'class')),
+					array('name' => $this->glang('heavy', true, $lang), 'value' => array(1 => 'class')),
+					array('name' => $this->glang('light', true, $lang), 'value' => array(1 => 'class', 3 => 'class')),
+					array('name' => $this->glang('cloth', true, $lang), 'value' => array(1 => 'class', 2 => 'class', 3 => 'class', 4 => 'class')),
 				));
 			}
 		}
@@ -69,13 +138,6 @@ if(!class_exists('dp')) {
 		* @return array
 		*/
 		public function get_OnChangeInfos($install=false){
-			//classcolors
-			$info['class_color'] = array(
-				1 => '#FDCB00',
-				2 => '#474AF8',
-				3 => '#5D9900',
-				4 => '#EB0900',				
-			);
 			
 			$info['aq'] = array();
 
