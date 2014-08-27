@@ -4,16 +4,15 @@
  * License:		Creative Commons - Attribution-Noncommercial-Share Alike 3.0 Unported
  * Link:		http://creativecommons.org/licenses/by-nc-sa/3.0/
  * -----------------------------------------------------------------------
- * Began:		2009
- * Date:		$Date: 2013-01-12 22:52:22 +0100 (Sa, 12. Jan 2013) $
+ * Date:		$Date: 2014-08-27 11:21:43 +0200 (Wed, 27 Aug 2014) $
  * -----------------------------------------------------------------------
- * @author		$Author: wallenium $
- * @copyright	2006-2011 EQdkp-Plus Developer Team
+ * @author		$Author: godmod $
+ * @copyright	2006-2014 EQdkp-Plus Developer Team
  * @link		http://eqdkp-plus.com
  * @package		eqdkp-plus
- * @version		$Rev: 12817 $
- * 
- * $Id: dp.class.php 12817 2013-01-12 21:52:22Z wallenium $
+ * @version		$Rev: 14552 $
+ *
+ * $Id: wow.class.php 14552 2014-08-27 09:21:43Z godmod $
  */
 
 if ( !defined('EQDKP_INC') ){
@@ -22,13 +21,14 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('dp')) {
 	class dp extends game_generic {
-		public $version			= '0.1';
-		protected $this_game	= 'dp';
-		protected $types		= array('classes', 'races', 'filters');
-		protected $classes		= array();
-		protected $races		= array();
-		protected $filters		= array();
-		public $langs			= array('english', 'german');
+		protected static $apiLevel	= 20;
+		public $version				= '0.1';
+		protected $this_game		= 'dp';
+		protected $types			= array('classes', 'races', 'filters');
+		protected $classes			= array();
+		protected $races			= array();
+		protected $filters			= array();
+		public $langs				= array('english', 'german');
 
 		protected $class_dependencies = array(
 			array(
@@ -106,11 +106,6 @@ if(!class_exists('dp')) {
 			return $xml_fields;
 		}
 
-		/**
-		* Initialises filters
-		*
-		* @param array $langs
-		*/
 		protected function load_filters($langs){
 			if(!$this->classes) {
 				$this->load_type('classes', $langs);
@@ -131,21 +126,7 @@ if(!class_exists('dp')) {
 			}
 		}
 
-		/**
-		* Returns Information to change the game
-		*
-		* @param bool $install
-		* @return array
-		*/
-		public function install($install=false){
-			
-			
-
-			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install
-			#if($install){
-			#}
-			return $info;
-		}
+		public function install($install=false){}
 	}
 }
 ?>
