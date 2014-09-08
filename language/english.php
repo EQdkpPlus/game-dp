@@ -43,10 +43,11 @@ $english_array = array(
 		'uc_male'						=> 'Male',
 		'uc_female'						=> 'Female',
 		'uc_guild'						=> 'Guild',
-		
-		'profession1'					=> 'Profession',
-		'profession1_mastery'			=> 'Master-Level of Profession',
+		'uc_race'						=> 'Race',
+		'uc_class'						=> 'Class',
+
+		'uc_profession1'				=> 'Profession',
+		'uc_profession1_mastery'		=> 'Master-Level of Profession',
 	),
-	
 );
 ?>

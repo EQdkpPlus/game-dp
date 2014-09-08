@@ -70,13 +70,11 @@ if(!class_exists('dp')) {
 
 		public function profilefields(){
 			// Category 'character' is a fixed one! All others are created dynamically!
-			$this->load_type('professions', array($this->lang));
-			$this->load_type('realmlist', array($this->lang));
 			$xml_fields = array(
 				'gender'	=> array(
 					'type'			=> 'dropdown',
 					'category'		=> 'character',
-					'name'			=> 'uc_gender',
+					'lang'			=> 'uc_gender',
 					'options'		=> array('Male' => 'uc_male', 'Female' => 'uc_female'),
 					'undeletable'	=> true,
 					'tolang'		=> true
@@ -84,21 +82,22 @@ if(!class_exists('dp')) {
 				'guild'	=> array(
 					'type'			=> 'text',
 					'category'		=> 'character',
-					'name'			=> 'uc_guild',
+					'lang'			=> 'uc_guild',
 					'size'			=> 40,
 					'undeletable'	=> true,
 				),
-					'profession1'	=> array(
+				'profession1'	=> array(
 					'type'			=> 'dropdown',
 					'category'		=> 'profession',
-					'name'			=> 'profession1',
+					'lang'			=> 'uc_profession1',
 					'options'		=> array('none' => '------', 'alchemist' => 'Alchemist', 'armorsmith' => 'Armorsmith', 'carpenter' => 'Carpenter', 'cook' => 'Cook', 'tinkerer' => 'Tinkerer', 'weaponsmith' => 'Weaponsmith'),
 					'undeletable'	=> true,
+					'tolang'		=> true
 				),
-					'profession1_mastery'	=> array(
+				'profession1_mastery'	=> array(
 					'type'			=> 'int',
 					'category'		=> 'profession',
-					'name'			=> 'profession1_mastery',
+					'lang'			=> 'uc_profession1_mastery',
 					'size'			=> 3,
 					'undeletable'	=> true,
 				),

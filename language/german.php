@@ -43,9 +43,11 @@ $german_array = array(
 		'uc_male'						=> 'Männlich',
 		'uc_female'						=> 'Weiblich',
 		'uc_guild'						=> 'Gilde',
+		'uc_race'						=> 'Rasse',
+		'uc_class'						=> 'Klasse',
 		
-		'profession1'					=> 'Beruf',
-		'profession1_mastery'			=> 'Meister-Stufe des Berufs',
+		'uc_profession1'				=> 'Beruf',
+		'uc:profession1_mastery'		=> 'Meister-Stufe des Berufs',
 	
 		'none'							=> '------', 
 		'Alchemist'						=> 'Alchemist', 
@@ -53,7 +55,7 @@ $german_array = array(
 		'Carpenter'						=> 'Schreiner', 
 		'Cook'							=> 'Koch', 
 		'Tinkerer'						=> 'Bastler', 
-		'Weaponsmith'					=> 'Waffenschmied', 	
+		'Weaponsmith'					=> 'Waffenschmied',
 	
 	),
 	
