@@ -83,7 +83,7 @@ if(!class_exists('dp')) {
 					'type'			=> 'text',
 					'category'		=> 'character',
 					'lang'			=> 'uc_guild',
-					'size'			=> 40,
+					'size'			=> 32,
 					'undeletable'	=> true,
 				),
 				'profession1'	=> array(
